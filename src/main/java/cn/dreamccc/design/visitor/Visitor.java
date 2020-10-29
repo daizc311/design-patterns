@@ -1,7 +1,5 @@
 package cn.dreamccc.design.visitor;
 
-import cn.dreamccc.design.visitor.Dot;
-
 /**
  * <h2>cn.dreamccc.design.visitor</h2>
  *
@@ -10,23 +8,27 @@ import cn.dreamccc.design.visitor.Dot;
  */
 interface Visitor {
 
-    /**
-     * 访问点
-     */
-    String visitDot(Dot entity);
-
-    /**
-     * 访问圆圈
-     */
-    String visitCircle(Circle entity);
-
-    /**
-     * 访问矩形
-     */
-    String visitRectangle(Rectangle entity);
-
-    /**
-     * 访问复合图形
-     */
-    String visitCompoundGraphic(CompoundGraphic entity);
+    default String visit(Element entity) {
+        return entity.accept(this);
+    }
+//
+//    /**
+//     * 访问点
+//     */
+//    String visit(DotElement entity);
+//
+//    /**
+//     * 访问圆圈
+//     */
+//    String visit(CircleElement entity);
+//
+//    /**
+//     * 访问矩形
+//     */
+//    String visit(RectangleElement entity);
+//
+//    /**
+//     * 访问复合图形
+//     */
+//    String visit(CompoundGraphicElement entity);
 }
